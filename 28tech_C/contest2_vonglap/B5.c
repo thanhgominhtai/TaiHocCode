@@ -1,0 +1,32 @@
+/*
+[Vòng lặp]. Bài 5.
+Tổng nghịch đảo 2
+Tính tổng : S = 1/2 + 1/4 + 1/6 + 1/8 +…….+ 1/(2n)
+
+		Input Format
+		Số nguyên dương n
+		Constraints
+		1≤n≤10^6
+		Output Format
+		Kết quả S(n) lấy độ chính xác 5 số sau dấu phẩy.
+		
+Sample Input 0
+993856
+Sample Output 0
+7.19328
+*/
+#include <stdio.h>
+int main()
+{
+	int n;
+	scanf("%d", &n);
+	double s = 0;
+	for(int i = 1; i <= n; i++)
+	{
+		printf("%d\t", i);
+		s += 1.0 / (2 * i);
+		printf("\n%lf", s);
+	}
+	printf("%.5lf", s);
+	return 0;
+}

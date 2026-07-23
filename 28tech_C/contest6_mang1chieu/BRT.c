@@ -1,0 +1,54 @@
+/*
+Mảng 1 Chiều]. Bài
+15. BRT
+Thành phố X có N thị trấn trên trục đường chính. Tọa độ của các thị trấn lần lượt là a[1],a[2], …, a[N],
+các tọa độ này là phân biệt, không có 2 tọa độ nào trùng nhau. Chính quyền thành phố muốn xây dựng
+một tuyến buýt nhanh BRT để kết nối 2 thị trấn gần nhau nhất với nhau. Bạn hãy tính thử xem chiều dài
+của tuyến buýt này bằng bao nhiêu? Và có bao nhiêu cặp thị trấn có tiềm năng giống nhau để xây dựng
+tuyến BRT này.
+
+Input Format
+Dòng đầu tiên là số nguyên N (N ≤ 1000 000). Dòng tiếp theo gồm N số nguyên A[i]
+Constraints
+N ≤ 1000 000;-10^9 ≤ A[i] ≤ 10^9
+Output Format
+In ra 2 số nguyên C và D, lần lượt là khoảng cách ngắn nhất giữa 2 thị trấn, và số lượng cặp thị trấn có
+cùng khoảng cách ngắn nhất này.
+
+Sample Input 0
+4
+6 -3 0 4
+Sample Output 0
+2 1
+Explanation 0
+Khoảng cách nhỏ nhất giữa 2 trị trấn là giữa thị trấn có tọa độ 4 và tọa độ 6.
+*/
+#include <stdio.h>
+#include <math.h>
+int main()
+{
+	int n; scanf("%d", &n);
+	int a[n];
+	int dem = 0;
+	int min = 1000;
+	for(int i = 0; i < n; i++)
+	{
+		scanf("%d", &a[i]);
+	}
+	for(int i = 0; i < n; i++)
+	{
+		for(int j = i + 1; j < n; j++)
+		{
+			if(abs(a[i] - a[j]) < min)
+			{
+				min = abs(a[i] - a[j]);
+				dem = 1;
+			}
+			else if(abs(a[i] - a[j]) == min)
+			{
+				++dem;
+			}
+		}
+	}
+	printf("%d %d", min, dem);
+}

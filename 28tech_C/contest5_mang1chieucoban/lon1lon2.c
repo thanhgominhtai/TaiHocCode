@@ -1,0 +1,45 @@
+/*
+[Mảng 1 chiều cơ
+bản]. Bài 15. Số lớn
+thứ nhất và lớn thứ 2
+Cho mảng số nguyên A[] gồm N phần tử, tìm số lớn nhất và lớn thứ 2 trong mảng. Chú ý 2 giá trị này có
+thể giống nhau
+
+Input Format
+Dòng đầu tiên là N : số lượng phần tử trong mảng; Dòng thứ 2 gồm N phần tử viết cách nhau một
+khoảng trống.
+Constraints
+2<=N<=10^6; 0<=A[i]<=10^6
+Output Format
+In ra số lớn thứ nhất và lớn thứ 2 trong mảng
+
+ample Input 0
+4
+996817 993012 990914 998837 
+Sample Output 0
+998837 996817
+1
+*/
+#include <stdio.h>
+int main()
+{
+	int n;
+	scanf("%d", &n);
+	int a[n];
+	for(int i = 0; i < n; i++)
+	{
+		scanf("%d", &a[i]);
+	}
+	int lon1 = -1e9, lon2 = -1e9;
+	for(int i = 0; i < n; i++)
+	{
+		if(a[i] >= lon1)
+		{
+			lon2 = lon1;
+			lon1 = a[i];
+		}
+	}
+	
+	printf("%d %d", lon1, lon2);
+	return 0;
+}

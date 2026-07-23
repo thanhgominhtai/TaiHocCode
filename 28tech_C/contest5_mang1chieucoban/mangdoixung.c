@@ -1,0 +1,45 @@
+/*
+[Mảng 1 chiều cơ
+bản]. Bài 17. Mảng
+đối xứng
+Cho mảng số nguyên A[] gồm N phần tử, kiểm tra xem mảng có đối xứng hay không?
+
+Input Format
+Dòng đầu tiên là N : số lượng phần tử trong mảng; Dòng thứ 2 gồm N phần tử viết cách nhau một
+khoảng trống.
+Constraints
+1<=N<=10^6; 0<=A[i]<=10^6
+Output Format
+In ra YES hoặc NO tương ứng với mảng đối xứng hoặc không.
+
+Sample Input 0
+20
+870 1069 2363 375 2188 6059 6775 495 643 832 832 643 495 6775 6059 2188 375 2363 1069 870 
+Sample Output 0
+YES
+*/
+#include <stdio.h>
+int check(int a[], int n)
+{
+	int left = 0, right = n - 1;
+	while(left <= right)
+	{
+		if(a[left] != a[right])
+			return 0;
+		++left; --right;
+	}
+	return 1;
+}
+int main()
+{
+	int n;
+	scanf("%d", &n);
+	int a[n];
+	for(int i = 0; i < n; i++)
+	{
+		scanf("%d", &a[i]);
+	}
+	if(check(a, n)) printf("yes");
+	else printf("no");
+	return 0;
+}n
